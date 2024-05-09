@@ -1,20 +1,17 @@
-let KmDaPercorrere = parseInt(prompt("Inserisci i chilomentri che desideri percorrere:"));
+const kmDaPercorrere = parseFloat(prompt("Inserisci i chilomentri che desideri percorrere:"));
+const etaPasseggero = parseInt(prompt("Inserisci la tua età:"));
 
-let etaPasseggero = parseInt(prompt("Inserisci l'età del tuo passeggero:"));
+const prezzoFissoBiglietto = 0.276;
 
-const prezzoFissoBiglietto = 0.276
-
-let prezzoBiglietto = (KmDaPercorrere * prezzoFissoBiglietto);
-
-console.log("Il prezzo del biglietto è: " + prezzoBiglietto + "Euro")
-
-if(etaPasseggero < 18){
-    prezzoBiglietto *= 0.79;
-}
-else if(etaPasseggero >= 65){
-    prezzoBiglietto *= 0.58;
+if (etaPasseggero => 65){
+    sconto = 42;
+} else if (etaPasseggero < 18){
+    sconto = 21;
 }
 
-let prezzoFinale= prezzoBiglietto .toFixed(2);
-console.log("Il prezzo finale del biglietto con lo sconto è:" + prezzoFinale + "Euro");
+let prezzoFinale = prezzoFissoBiglietto * kmDaPercorrere;
+prezzoFinale = prezzoFinale - ((prezzoFinale /100) * sconto);
+
+console.log("Il prezzo finale del biglietto con lo sconto sull'età del passeggero è:" + prezzoFinale.toFixed(2) + "Euro");
+
 
